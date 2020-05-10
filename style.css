@@ -5,9 +5,9 @@ body {
 
 .file-upload {
   background-color: #ffffff;
-  width: 600px;
+  width: 800px;
   margin: 0 auto;
-  padding: 20px;
+	text-align: center;
 }
 
 .file-upload-btn {
@@ -40,6 +40,9 @@ body {
 .file-upload-content {
   display: none;
   text-align: center;
+  width: 800px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .file-upload-input {
@@ -127,6 +130,10 @@ body {
 
 .section {
 	margin-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 22.5;
+
 }
 
 .title {
@@ -143,17 +150,36 @@ body {
 }
 
 /* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 11px;
+  }
+	.file-upload {
+		width: 600px;
+	}
+	.start {
+		width: 600px;
+	}
+	.file-upload-content {
+		width: 600px;
+	}
+}
+
+@media screen and (max-width: 600px) {
   html {
     font-size: 9px;
   }
 	.file-upload {
-		width: 400px;
+		width: 350px;
 	}
 	.start {
-		width: 400px;
+		width: 350px;
+	}
+	.file-upload-content {
+		width: 350px;
 	}
 }
+
 
 .start {
 	width: 100%;
@@ -162,7 +188,13 @@ body {
 	font-weight: 700;
 	margin-top: 20px;
 	
+    color: #fff;
+  background: #1FB264;
+  border: none;
   padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #15824B;
+  transition: all .2s ease;
   border-radius: 4px;
   border-bottom: 4px solid #15824B;
   transition: all .2s ease;
@@ -170,3 +202,17 @@ body {
   text-transform: uppercase;
 }
 
+.addthis_inline_share_toolbox {
+	text-align: center;
+	padding: 10px;
+}
+
+.row {
+  display: flex;
+	text-align: center;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}

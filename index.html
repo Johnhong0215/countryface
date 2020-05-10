@@ -11,6 +11,9 @@
 
 	<title>Hello, world!</title>
 	<link rel="stylesheet" href="style.css">
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eb7fd59e5163dee"></script>
+
 </head>
 
 <body>
@@ -39,17 +42,16 @@
 		</div>
 	</nav>
 	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	
+
 	<section class="section">
 		<h1 class="title">
 			나라별 얼굴 상
 		</h1>
 		<h2 class="subtitle">
-			AI가 보는 나는 어느나라에서 호감상 일까?
+			AI가 보는 나는 어느 나라에서 인기가 많을까?
 		</h2>
 	</section>
-	
-	
+
 	<div class="file-upload">
 		<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">사진 넣기</button>
 
@@ -60,21 +62,32 @@
 			</div>
 		</div>
 		<div class="file-upload-content">
-			<img class="file-upload-image" id="face-image" src="#" alt="your image" />
-			<p class="result-message"></p>
-			<div id="label-container"></div>
 			<div class="image-title-wrap">
 				<button type="button" onclick="removeUpload()" class="remove-image">다른 사진으로 다시하기
 				</button>
 			</div>
+			<div class="row">
+				<div class="column" id="country1" style="display: none;"> <img id="flag1" src="" alt="country flag" height="150" width="150"> </div>
+				<div class="column">
+					<img class="file-upload-image" id="face-image" src="#" alt="your image" />
+				</div>	
+				<div class="column" id="country2" style="display: none;"> <img id="flag2" src="" alt="country flag" height="150" width="150">
+				</div>
+			</div>
+			
+			<div id="loading" class="animated bounce" style="display: none;">
+				로딩중..
+			</div>
+			<p class="result-message"></p>
+			<div id="label-container"></div>
 		</div>
-		
-		<div class="starting">
-			<button class="start" type="button" onclick="init()">시작하기</button>
-		</div>
+
+		<!-- Go to www.addthis.com/dashboard to customize your tools -->
+		<div class="addthis_inline_share_toolbox" style="display: none;"></div>
+
+		<button class="start" type="button" onclick="init()" style="display: none;">시작하기</button>
 	</div>
 
-	
 	<div id="webcam-container"></div>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -87,6 +100,8 @@
 				var reader = new FileReader();
 				reader.onload = function(e) {
 					$('.image-upload-wrap').hide();
+					$('.file-upload-btn').hide();
+					$('.start').show();
 					$('.file-upload-image').attr('src', e.target.result);
 					$('.file-upload-content').show();
 					$('.image-title').html(input.files[0].name);
@@ -106,7 +121,6 @@
 		$('.image-upload-wrap').bind('dragleave', function() {
 			$('.image-upload-wrap').removeClass('image-dropping');
 		});
-		
 	</script>
 	<script type="text/javascript">
 		// More API functions here:
@@ -116,6 +130,7 @@
 		let model, webcam, labelContainer, maxPredictions;
 		// Load the image model and setup the webcam
 		async function init() {
+			$('#loading').show();
 			const modelURL = URL + "model.json";
 			const metadataURL = URL + "metadata.json";
 			// load the model and metadata
@@ -135,58 +150,92 @@
 			// predict can take in an image, video or canvas html element
 			var image = document.getElementById("face-image")
 			const prediction = await model.predict(image, false);
-			prediction.sort((a,b) => parseFloat(b.probability) - parseFloat(a.probability));
+			prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+			$('#loading').hide();
+			$('.addthis_inline_share_toolbox').show();
 			var resultMessage;
-			switch(prediction[0].className) {
+			switch (prediction[0].className) {
 				case "Korea":
 					resultMessage = "한국에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Korea.png";
+					document.getElementById("flag2").src = "Flags/Korea.png";
 					break;
 				case "China":
 					resultMessage = "중국에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/China.png";
+					document.getElementById("flag2").src = "Flags/China.png";
 					break;
 				case "Japan":
 					resultMessage = "일본에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Japan.png";
+					document.getElementById("flag2").src = "Flags/Japan.png";
 					break;
 				case "USA":
 					resultMessage = "미국에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/USA.png";
+					document.getElementById("flag2").src = "Flags/USA.png";
 					break;
 				case "Canada":
 					resultMessage = "캐나다에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Canada.png";
+					document.getElementById("flag2").src = "Flags/Canada.png";
 					break;
 				case "Mexico":
 					resultMessage = "맥시코에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Mexico.png";
+					document.getElementById("flag2").src = "Flags/Mexico.png";
 					break;
 				case "India":
 					resultMessage = "인도에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/India.png";
+					document.getElementById("flag2").src = "Flags/India.png";
 					break;
 				case "Arab":
 					resultMessage = "아랍에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/ArabFederation.png";
+					document.getElementById("flag2").src = "Flags/ArabFederation.png";
 					break;
 				case "Italy":
 					resultMessage = "이탈리아에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Italy.png";
+					document.getElementById("flag2").src = "Flags/Italy.png";
 					break;
 				case "Spain":
 					resultMessage = "스페인에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Spain.png";
+					document.getElementById("flag2").src = "Flags/Spain.png";
 					break;
 				case "France":
 					resultMessage = "프랑스에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/France.png";
+					document.getElementById("flag2").src = "Flags/France.png";
 					break;
 				case "Germany":
 					resultMessage = "독일에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Germany.png";
+					document.getElementById("flag2").src = "Flags/Germany.png";
 					break;
 				case "U.K.":
 					resultMessage = "영국에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/UK.png";
+					document.getElementById("flag2").src = "Flags/UK.png";
 					break;
 				case "Brazil":
 					resultMessage = "브라질에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Brazil.png";
+					document.getElementById("flag2").src = "Flags/Brazil.png";
 					break;
 				case "Russia":
 					resultMessage = "러시아에서 인기 있는 상"
+					document.getElementById("flag1").src = "Flags/Russia.png";
+					document.getElementById("flag2").src = "Flags/Russia.png";
 					break;
-				default: 
+				default:
 					resultMessage = "알수없음"
 			}
 			$('.result-message').html(resultMessage);
+		    $('#country1').show();
+			$('#country2').show();
 			for (let i = 0; i < maxPredictions; i++) {
 				const classPrediction =
 					prediction[i].className + ": " + prediction[i].probability.toFixed(2);
