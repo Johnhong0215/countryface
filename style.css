@@ -147,6 +147,9 @@ body {
   html {
     font-size: 9px;
   }
+	.file-upload {
+		width: 600px;
+	}
 }
 .starting {
   background-color: #ffffff;
