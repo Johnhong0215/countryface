@@ -148,23 +148,25 @@ body {
     font-size: 9px;
   }
 	.file-upload {
-		width: 600px;
+		width: 400px;
 	}
-}
-.starting {
-  background-color: #ffffff;
-  width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-	text-align: center;
+	.start {
+		width: 400px;
+	}
 }
 
 .start {
-	width: 552px;
-	height: 40px;
-	margin-top: 3%;
+	width: 100%;
 	border-color: green;
  	margin: 0 auto;
-	text-align: center;
+	font-weight: 700;
+	margin-top: 20px;
+	
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #15824B;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
 }
 
