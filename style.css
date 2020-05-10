@@ -177,6 +177,9 @@ body {
 		max-height: 100px;
   		max-width: 100px;
 	}
+	.comment {
+	max-width: 550px;
+}
 }
 
 @media screen and (max-width: 600px) {
@@ -192,6 +195,9 @@ body {
 	.file-upload-content {
 		width: 350px;
 	}
+	.comment {
+	max-width: 300px;
+}
 }
 
 
@@ -228,7 +234,7 @@ body {
 }
 
 .comment {
-	padding: 100px;
-	width: 1200px;
+	padding: 100px 0px 0px 0px;
 	margin: 0 auto;
+	max-width: 850px;
 }
