@@ -11,8 +11,7 @@
 
 	<title>석준이의 코딩 세상</title>
 	<link rel="stylesheet" href="style.css">
-	<!-- Go to www.addthis.com/dashboard to customize your tools -->
-	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eb7fd59e5163dee"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eb7fd59e5163dee"></script>
 
 </head>
 
@@ -68,12 +67,12 @@
 			</div>
 			<div class="row">
 				<div class="column" id="country1" style="display: none;">
-					<img id="flag1" src="" alt="country flag" height="150" width="230"> </div>
+					<img class="flag1" id="flag1" src="" alt="country flag" height="150" width="230"> </div>
 				<div class="column">
 					<img class="file-upload-image" id="face-image" src="#" alt="your image" />
 				</div>
 				<div class="column" id="country2" style="display: none;">
-					<img id="flag2" src="" alt="country flag" height="150" width="230">
+					<img class="flag2" id="flag2" src="" alt="country flag" height="150" width="230">
 				</div>
 			</div>
 
@@ -84,8 +83,7 @@
 			<div id="label-container"></div>
 		</div>
 
-		<!-- Go to www.addthis.com/dashboard to customize your tools -->
-		<div class="addthis_inline_share_toolbox" style="display: none;"></div>
+		<!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox_iaic" ></div>
 
 		<button class="start" type="button" onclick="init()" style="display: none;">시작하기</button>
 	</div>
@@ -178,7 +176,7 @@
 			const prediction = await model.predict(image, false);
 			prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
 			$('#loading').hide();
-			$('.addthis_inline_share_toolbox').show();
+			$('.addthis_inline_share_toolbox_iaic').show();
 			var resultMessage;
 			switch (prediction[0].className) {
 				case "Korea":

@@ -43,6 +43,8 @@ body {
   width: 800px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	border: solid 1.5px #f6f7fa;
+	background-color: #f6f7fa;
 }
 
 .file-upload-input {
@@ -69,7 +71,7 @@ body {
 }
 
 .image-title-wrap {
-  padding: 0 15px 15px 15px;
+  padding: 15px 15px 15px 15px;
   color: #222;
 }
 
@@ -87,8 +89,8 @@ body {
 .file-upload-image {
   max-height: 200px;
   max-width: 200px;
-  margin: auto;
-  padding: 20px;
+  margin: 0 auto;
+	margin-bottom: 15px;
 }
 
 .remove-image {
@@ -163,6 +165,18 @@ body {
 	.file-upload-content {
 		width: 600px;
 	}
+	.flag1 {
+		width: 130px;
+		height: 70px
+	}
+	.flag2 {
+		width: 130px;
+		height: 70px
+	}
+	.file-upload-image {
+		max-height: 100px;
+  		max-width: 100px;
+	}
 }
 
 @media screen and (max-width: 600px) {
@@ -202,19 +216,15 @@ body {
   text-transform: uppercase;
 }
 
-.addthis_inline_share_toolbox {
+.addthis_inline_share_toolbox_iaic {
 	text-align: center;
-	padding: 10px;
-}
-
-.row {
-  display: flex;
-	text-align: center;
+	margin-top: 50px;
+	display: none;
 }
 
 .column {
-  flex: 33.33%;
-  padding: 5px;
+  text-align: center;
+	margin: 0 auto;
 }
 
 .comment {
