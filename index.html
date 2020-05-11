@@ -8,7 +8,7 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	
+
 	<!-- favicon -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -97,8 +97,11 @@
 				</div>
 			</div>
 
+			<div class="congrat" style="display: none">
+				<b>축하합니다!</b>
+			</div>
 			<p class="result-message"></p>
-			<div id="label-container"></div>
+			<div id="label-container" class="d-flex flex-column justify-content-around"></div>
 		</div>
 
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -112,28 +115,30 @@
 	<div class="comment" id="disqus_thread"></div>
 
 	<footer class="footer text-center">
-    <div class="container">
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="https://www.facebook.com/profile.php?id=100004957216237" target="_blank">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="https://www.instagram.com/seokjohn_hong/" target="_blank">
-              <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="https://www.linkedin.com/in/john-hong-682b69193/" target="_blank">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-            </a>
-        </li>
-      </ul>
-      <p class="text-muted small mb-0">Copyright © CountryFace 2020</p>
-      <p class="text-muted small mb-0">Designed by <a href="https://portfoliosimulator.netlify.app/" target="_balnk">John Hong</a></p>
-    </div>
-  </footer>
+		<div class="container">
+			<ul class="list-inline">
+				<li class="list-inline-item">
+					<a class="social-link rounded-circle text-white mr-3" href="https://www.facebook.com/profile.php?id=100004957216237" target="_blank">
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a class="social-link rounded-circle text-white mr-3" href="https://www.instagram.com/seokjohn_hong/" target="_blank">
+						<i class="fa fa-instagram" aria-hidden="true"></i>
+					</a>
+				</li>
+				<li class="list-inline-item">
+					<a class="social-link rounded-circle text-white" href="https://www.linkedin.com/in/john-hong-682b69193/" target="_blank">
+						<i class="fa fa-linkedin" aria-hidden="true"></i>
+					</a>
+				</li>
+			</ul>
+			<p class="text-muted small mb-0">Copyright © CountryFace 2020</p>
+			<p class="text-muted small mb-0">Designed by
+				<a href="https://portfoliosimulator.netlify.app/" target="_balnk">John Hong</a>
+			</p>
+		</div>
+	</footer>
 
 	<script>
 		/**
@@ -213,8 +218,10 @@
 			model = await tmImage.load(modelURL, metadataURL);
 			maxPredictions = model.getTotalClasses();
 			labelContainer = document.getElementById("label-container");
-			for (let i = 0; i < maxPredictions; i++) { // and class labels
-				labelContainer.appendChild(document.createElement("div"));
+			for (let i = 0; i < maxPredictions; i++) {
+				var element = document.createElement("div")
+                element.classList.add("d-flex");
+                labelContainer.appendChild(element);
 				predict();
 			}
 		}
@@ -226,6 +233,7 @@
 			prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
 			$('.wrapperloading').hide();
 			$('.addthis_inline_share_toolbox_iaic').show();
+			$('.congrat').show();
 			var resultMessage;
 			switch (prediction[0].className) {
 				case "Korea":
@@ -309,10 +317,68 @@
 			$('.result-message').html(resultMessage);
 			$('#country1').show();
 			$('#country2').show();
-			for (let i = 0; i < maxPredictions; i++) {
-				const classPrediction =
-					prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-				labelContainer.childNodes[i].innerHTML = classPrediction;
+			for (let i = 0; i < 5; i++) {
+				if (prediction[i].probability.toFixed(2) > 0.1) {
+                    barWidth = Math.round(prediction[i].probability.toFixed(2) * 100) + "%";
+                } else if (prediction[i].probability.toFixed(2) >= 0.01) {
+                    barWidth = "4%"
+                } else {
+                    barWidth = "2%"
+                }
+                var labelTitle;
+                switch (prediction[i].className) {
+                    case "USA":
+                        labelTitle = "미국"
+                        break;
+                    case "Korea":
+                        labelTitle = "한국"
+                        break;
+                    case "Japan":
+                        labelTitle = "일본"
+                        break;
+                    case "UK":
+                        labelTitle = "영국"
+                        break;
+                    case "India":
+                        labelTitle = "인도"
+                        break;
+                    case "Mexico":
+                        labelTitle = "멕시코"
+                        break;
+                    case "Brazil":
+                        labelTitle = "브라질"
+                        break;
+					case "France":
+                        labelTitle = "프랑스"
+                        break;
+					case "Spain":
+                        labelTitle = "스페인"
+                        break;
+					case "Italy":
+                        labelTitle = "이탈리아"
+                        break;
+					case "China":
+                        labelTitle = "중국"
+                        break;
+					case "Germany":
+                        labelTitle = "독일"
+						break;
+					case "Russia":
+                        labelTitle = "러시아"
+                        break;
+					case "Arab":
+                        labelTitle = "아랍"
+                        break;
+					case "Canada":
+                        labelTitle = "캐나다"
+                        break;
+                    default:
+                        labelTitle = "알수없음"
+                }
+				
+				var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
+                var bar = "<div class='bar-container position-relative container'><div class='" + prediction[i].className + "-box'></div><div class='d-flex justify-content-center align-items-center " + prediction[i].className + "-bar' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + "%</span></div></div>"
+                labelContainer.childNodes[i].innerHTML = label + bar;
 			}
 		}
 	</script>
