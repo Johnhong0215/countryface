@@ -559,3 +559,33 @@ input:checked + label > .knob > i:before {
 	margin-bottom: 30px;
 }
 
+footer.footer {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-color: #fafafa;
+}
+footer.footer .social-link {
+  display: block;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  background-color: #02ccba;
+  color: #fff;
+  border: none;
+  padding: 10px;
+}
+footer.footer .social-link:hover {
+	background-color: #07bcab;
+}
+footer.footer p.small a {
+	color: #636c72;
+	text-decoration: none;
+}
+footer.footer p.small a:hover, footer.footer p.small a.focus {
+	color: #02ccba;
+	text-decoration: none;
+}
+#Contact .address-block span {
+	text-transform: none;
+}
+
