@@ -790,7 +790,7 @@ footer.footer p.small a:hover, footer.footer p.small a.focus {
   border-radius: 10px;
   background-color: rgba(106,90,205, 1);
 }
-.UK-box {
+.U.K.-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -799,7 +799,7 @@ footer.footer p.small a:hover, footer.footer p.small a.focus {
   width: 100%;
   background-color: rgba(65,105,225, 0.2);
 }
-.UK-bar {
+.U.K.-bar {
   position: absolute;
   top: 0;
   left: 0;
