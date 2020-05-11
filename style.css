@@ -872,3 +872,9 @@ footer.footer p.small a:hover, footer.footer p.small a.focus {
     width: 80%;
     margin: 0 auto;
 }
+
+.advertisement {
+	width: 320px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
