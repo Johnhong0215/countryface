@@ -23,7 +23,7 @@
 	<!-- favicon -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<title>나라별 인기 얼굴</title>
+	<title>Ideal face type by country</title>
 
 	<link rel="stylesheet" href="style.css">
 	<!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -74,16 +74,11 @@
             <option value="es" lang="es">español</option>
             <option value="ja" lang="ja">日本語</option>
             <option value="zh" lang="zh">中文</option>
-            <option value="vi" lang="vi">tiếng Việt</option>
-            <option value="id" lang="id">Bahasa Indonesia</option>
         </select>
     </section>
     <script>
         var ua = navigator.userAgent.toLowerCase();
         function changeLanguage(lang) {
-			if(lang.value == "ko") {
-				window.open("https://www.countrybyface.com/");
-			}
             if( ( navigator.userAgent.indexOf('Mac OS') > 0 && navigator.userAgent.indexOf('Safari') <= 0 ) || ( ( navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('wv)') > 0 ) ) ){
                 if (ua.match('android') != null) {
                     window.open("googlechrome://navigate?url=countrybyface.com"+lang.value+"/index.html"); //android
