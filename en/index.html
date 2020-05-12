@@ -159,7 +159,7 @@
 			</div>
 
 			<div class="wrapperloading" style="display: none;">
-				<div class="text">AI가 당신의 얼굴상을 분석하고 있습니다..</div>
+				<div class="text">AI is analyzing your photo...</div>
 				<div class="inner">
 					<div class="loading up"></div>
 					<div class="loading down"></div>
@@ -176,7 +176,7 @@
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
 		<div class="addthis_inline_share_toolbox_iaic"></div>
 
-		<button class="start" type="button" onclick="init()" style="display: none;">시작하기</button>
+		<button class="start" type="button" onclick="init()" style="display: none;">Start</button>
 	</div>
 
 	<div id="webcam-container"></div>
@@ -408,52 +408,52 @@
 				var labelTitle;
 				switch (prediction[i].className) {
 					case "USA":
-						labelTitle = "미국"
+						labelTitle = "U.S.A."
 						break;
 					case "Korea":
-						labelTitle = "한국"
+						labelTitle = "South Korea"
 						break;
 					case "Japan":
-						labelTitle = "일본"
+						labelTitle = "Japan"
 						break;
 					case "UK":
-						labelTitle = "영국"
+						labelTitle = "U.K."
 						break;
 					case "India":
-						labelTitle = "인도"
+						labelTitle = "India"
 						break;
 					case "Mexico":
-						labelTitle = "멕시코"
+						labelTitle = "Mexico"
 						break;
 					case "Brazil":
-						labelTitle = "브라질"
+						labelTitle = "Brazil"
 						break;
 					case "France":
-						labelTitle = "프랑스"
+						labelTitle = "France"
 						break;
 					case "Spain":
-						labelTitle = "스페인"
+						labelTitle = "Spain"
 						break;
 					case "Italy":
-						labelTitle = "이탈리아"
+						labelTitle = "Italy"
 						break;
 					case "China":
-						labelTitle = "중국"
+						labelTitle = "China"
 						break;
 					case "Germany":
-						labelTitle = "독일"
+						labelTitle = "Germany"
 						break;
 					case "Russia":
-						labelTitle = "러시아"
+						labelTitle = "Russia"
 						break;
 					case "Arab":
-						labelTitle = "아랍"
+						labelTitle = "Arab"
 						break;
 					case "Canada":
-						labelTitle = "캐나다"
+						labelTitle = "Canada"
 						break;
 					default:
-						labelTitle = "알수없음"
+						labelTitle = "Unidentifiable"
 				}
 				var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
 				var bar = "<div class='bar-container position-relative container'><div class='" + prediction[i].className + "-box'></div><div class='d-flex justify-content-center align-items-center " + prediction[i].className + "-bar' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + "%</span></div></div>"
