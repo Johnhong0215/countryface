@@ -7,6 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="naver-site-verification" content="64227dd9ddbd8fd00b1a95d730c5834e6dbbfa9d" />
 	<meta name="description" content="구글 AI를 활용하여 만든 나라별 인기 얼굴 사이트 입니다.">
+	<meta name="title" content="나라별 인기 얼굴">
+    <meta name="subject" content="구글 AI를 통해 본인이 어떤 나라에서 인기있는 상인지 알아보세요!">
+    <meta name="keywords" content="인공지능 얼굴상, 얼굴상, AI, 나라별 얼굴상, 나라별, 얼굴매력, 얼굴, 한국 얼굴상, 일본 얼굴상, 미국 얼굴상, 중국 얼굴상, 멕시코 얼굴상, 캐나다 얼굴상, 독일 얼굴상, 영국 얼굴상, 이탈리아 얼굴상, 아랍 얼굴상, 인도 얼굴상, 브라질 얼굴상, 러시아 얼굴상, 스페인 얼굴상, 프랑스 얼굴상">
+    <meta name="author" content="홍석준">
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -66,7 +70,7 @@
 	
 	
 	<!-- 언어 -->
-	 <section class="container d-flex flex-column justify-content-center align-items-center">
+	     <section class="container d-flex flex-column justify-content-center align-items-center">
         <span class="select-language">Language</span>
         <select onchange="changeLanguage(this)" class="custom-select col-8">
             <option value="ko" lang="ko">한국어</option>
@@ -74,6 +78,8 @@
             <option value="es" lang="es">español</option>
             <option value="ja" lang="ja">日本語</option>
             <option value="zh" lang="zh">中文</option>
+            <option value="vi" lang="vi">tiếng Việt</option>
+            <option value="id" lang="id">Bahasa Indonesia</option>
         </select>
     </section>
     <script>
@@ -81,14 +87,14 @@
         function changeLanguage(lang) {
             if( ( navigator.userAgent.indexOf('Mac OS') > 0 && navigator.userAgent.indexOf('Safari') <= 0 ) || ( ( navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('wv)') > 0 ) ) ){
                 if (ua.match('android') != null) {
-                    window.open("googlechrome://navigate?url=countrybyface.com"+lang.value+".html"); //android
+                    window.open("googlechrome://navigate?url=countrybyface.com/"+lang.value+"/index.html"); //android
                 } else if (ua.indexOf("iphone")>-1||ua.indexOf("ipad")>-1||ua.indexOf("ipod")>-1) { 
-                    window.location.href = "https://www.countrybyface.com/"+lang.value+".html";
+                    window.location.href = "https://www.countrybyface.com/"+lang.value+"/index.html";
                 } else {
-                    window.location.href = "https://www.countrybyface.com/"+lang.value+".html";
+                    window.location.href = "https://www.countrybyface.com/"+lang.value+"/index.html";
                 }
             } else {
-                window.location.href = "https://www.countrybyface.com/"+lang.value+".html";
+                window.location.href = "https://www.countrybyface.com/"+lang.value+"/index.html";
             }
         }
     </script>
