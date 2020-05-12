@@ -81,6 +81,9 @@
     <script>
         var ua = navigator.userAgent.toLowerCase();
         function changeLanguage(lang) {
+			if(lang.value == "한국어") {
+				window.open("https://www.countrybyface.com/");
+			}
             if( ( navigator.userAgent.indexOf('Mac OS') > 0 && navigator.userAgent.indexOf('Safari') <= 0 ) || ( ( navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('wv)') > 0 ) ) ){
                 if (ua.match('android') != null) {
                     window.open("googlechrome://navigate?url=countrybyface.com"+lang.value+"/index.html"); //android
