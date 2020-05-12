@@ -45,18 +45,18 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item active">
-					<a class="nav-link" href="https://www.countrybyface.com/">홈
+					<a class="nav-link" href="https://www.countrybyface.com/">Home
 						<span class="sr-only">(current)</span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Data base</a>
+					<a class="nav-link" href="#">Database</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="https://teachablemachine.withgoogle.com/">구글 AI</a>
+					<a class="nav-link" href="https://teachablemachine.withgoogle.com/">Google AI</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="https://www.countrybyface.com/privacy.html">개인정보처리방침</a>
+					<a class="nav-link" href="https://www.countrybyface.com/privacy.html">Privacy Policy</a>
 				</li>
 			</ul>
 		</div>
@@ -108,7 +108,7 @@
 	</section>
 
 	<section class="d-flex justify-content-center" style="margin-bottom: 30px">
-        <p class="d-flex align-items-center pr-3">여자</p>
+        <p class="d-flex align-items-center pr-3">Female</p>
         <div>
             <input type="checkbox" id="gender">
             <label for="gender">
@@ -117,21 +117,21 @@
                 </span>
             </label>
         </div>
-        <p class="d-flex align-items-center pl-3">남자</p>
+        <p class="d-flex align-items-center pl-3">Male</p>
     </section>
 	
 	<div class="file-upload">
-		<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">사진 넣기</button>
+		<button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Insert Photo</button>
 
 		<div class="image-upload-wrap">
 			<input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
 			<div class="drag-text">
-				<h3>사진을 올려 놓으세요!</h3>
+				<h3>Drag and Drop your photo here!</h3>
 			</div>
 		</div>
 		<div class="file-upload-content">
 			<div class="image-title-wrap">
-				<button type="button" onclick="removeUpload()" class="remove-image">다른 사진으로 다시하기
+				<button type="button" onclick="removeUpload()" class="remove-image">Try Again
 				</button>
 			</div>
 			<div class="row">
@@ -154,7 +154,7 @@
 			</div>
 
 			<div class="congrat" style="display: none">
-				<b>축하합니다!</b>
+				<b>Congrats!</b>
 			</div>
 			<p class="result-message"></p>
 			<div id="label-container" class="d-flex flex-column justify-content-around"></div>
@@ -163,7 +163,7 @@
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
 		<div class="addthis_inline_share_toolbox_iaic"></div>
 
-		<button class="start" type="button" onclick="init()" style="display: none;">시작하기</button>
+		<button class="start" type="button" onclick="init()" style="display: none;">Begin Analysis</button>
 	</div>
 
 	<div id="webcam-container"></div>
@@ -200,7 +200,7 @@
 			</p>
 			<section class="youtube pb-3">
 				<div class="container mt-3">
-					<a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" class="youtube-link">제작 도움: 조코딩 유튜브 채널</a>
+					<a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" class="youtube-link">Assisted by 조코딩 유튜브 채널</a>
 					<img src="img/youtube-copy.jpg" alt="youtube-icon" class="youtube-icon">
 				</div>
 			</section>
@@ -395,52 +395,52 @@
 				var labelTitle;
 				switch (prediction[i].className) {
 					case "USA":
-						labelTitle = "미국"
+						labelTitle = "U.S.A."
 						break;
 					case "Korea":
-						labelTitle = "한국"
+						labelTitle = "South Korea"
 						break;
 					case "Japan":
-						labelTitle = "일본"
+						labelTitle = "Japan"
 						break;
 					case "UK":
-						labelTitle = "영국"
+						labelTitle = "U.K."
 						break;
 					case "India":
-						labelTitle = "인도"
+						labelTitle = "India"
 						break;
 					case "Mexico":
-						labelTitle = "멕시코"
+						labelTitle = "Mexico"
 						break;
 					case "Brazil":
-						labelTitle = "브라질"
+						labelTitle = "Brazil"
 						break;
 					case "France":
-						labelTitle = "프랑스"
+						labelTitle = "France"
 						break;
 					case "Spain":
-						labelTitle = "스페인"
+						labelTitle = "Spain"
 						break;
 					case "Italy":
-						labelTitle = "이탈리아"
+						labelTitle = "Italy"
 						break;
 					case "China":
-						labelTitle = "중국"
+						labelTitle = "China"
 						break;
 					case "Germany":
-						labelTitle = "독일"
+						labelTitle = "Germany"
 						break;
 					case "Russia":
-						labelTitle = "러시아"
+						labelTitle = "Russia"
 						break;
 					case "Arab":
-						labelTitle = "아랍"
+						labelTitle = "Arab Federation"
 						break;
 					case "Canada":
-						labelTitle = "캐나다"
+						labelTitle = "Canada"
 						break;
 					default:
-						labelTitle = "알수없음"
+						labelTitle = "Can't identify"
 				}
 				var label = "<div class='animal-label d-flex align-items-center'>" + labelTitle + "</div>"
 				var bar = "<div class='bar-container position-relative container'><div class='" + prediction[i].className + "-box'></div><div class='d-flex justify-content-center align-items-center " + prediction[i].className + "-bar' style='width: " + barWidth + "'><span class='d-block percent-text'>" + Math.round(prediction[i].probability.toFixed(2) * 100) + "%</span></div></div>"
