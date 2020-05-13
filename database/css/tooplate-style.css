@@ -378,7 +378,7 @@ figure.effect-sadie:hover p {
 }
 
 .tm-about-img {
-    background-image: url(../img/insertion-560x336-01.jpg);
+    background-image: url(../img/malephoto.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 336px;
@@ -870,4 +870,11 @@ iframe { max-width: 100%; }
     .tm-fa-mb-big { margin-bottom: 1.5rem; }
     .tm-site-name { font-size: 2.4rem; }
     .tm-site-description { font-size: 1.2rem; }
+}
+
+.ad {
+	width: 300;
+	height: 250;
+	margin: 0 auto;
+	text-align: center;
 }
