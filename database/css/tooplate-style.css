@@ -412,8 +412,8 @@ figure.effect-sadie:hover p {
 }
 
 .nav-tabs .nav-item {
-    margin-bottom: 20px;
     width: 100%;
+	height: 90px;
 }
 
 .nav-tabs .nav-item:last-child { margin-bottom: 0; }
