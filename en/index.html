@@ -49,7 +49,7 @@
 	<title>copyright</title>
 </head>
 
-<body>
+<body onload="onload()">
 	<nav class="navbar navbar-expand-lg navbar-light nav-distance">
 		<a class="navbar-brand" href="https://www.countrybyface.com/">Beauty standards by countries</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -275,7 +275,21 @@
 			}
 		}
 
+		function onload() {
+    		var male = localStorage.getItem("male");
+    		if (male !== null && male > 0) {
+				document.getElementById("gender").checked = true;
+			} else if (male < 0) {
+				document.getElementById("gender").checked = false;
+			}
+		}
+
 		function removeUpload() {
+			if (document.getElementById("gender").checked) {
+				localStorage.setItem("male", 1);
+			} else {
+				localStorage.setItem("male", null);
+			}
 			window.location.reload();
 		}
 		$('.image-upload-wrap').bind('dragover', function() {
