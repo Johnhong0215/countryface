@@ -177,6 +177,9 @@ body {
 	.start {
 		width: 600px;
 	}
+	.detail {
+		width: 600px;
+	}
 	.file-upload-content {
 		width: 600px;
 	}
@@ -212,6 +215,9 @@ body {
 	.start {
 		width: 350px;
 	}
+	.detail {
+		width: 350px;
+	}
 	.file-upload-content {
 		width: 350px;
 	}
@@ -226,6 +232,26 @@ body {
 }
 
 .start {
+	width: 100%;
+	border-color: green;
+	margin: 0 auto;
+	font-weight: 700;
+	margin-top: 20px;
+
+	color: #fff;
+	background: #1fb264;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	border-bottom: 4px solid #15824b;
+	transition: all 0.2s ease;
+	border-radius: 4px;
+	border-bottom: 4px solid #15824b;
+	transition: all 0.2s ease;
+	outline: none;
+	text-transform: uppercase;
+}
+.detail {
 	width: 100%;
 	border-color: green;
 	margin: 0 auto;

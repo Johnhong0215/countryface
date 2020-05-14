@@ -171,6 +171,7 @@
 			<p class="result-message"></p>
 			<div id="label-container" class="d-flex flex-column justify-content-around"></div>
 		</div>
+		<button class="detail" type="button" onclick="detail()" style="display: none;">결과 더 알아보기</button>
 
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
 		<div class="addthis_inline_share_toolbox_iaic"></div>
@@ -272,6 +273,13 @@
 				removeUpload();
 			}
 		}
+		function detail() {
+			if (document.getElementById("gender").checked) {
+				window.location.href ='database/Male.html';
+			} else {
+				window.location.href ='database/Female.html';
+			}
+		}
 
 		function onload() {
     		var male = localStorage.getItem("male");
@@ -335,6 +343,8 @@
 			$('.wrapperloading').hide();
 			$('.addthis_inline_share_toolbox_iaic').show();
 			$('.congrat').show();
+			$('.start').hide();
+			$('.detail').show();
 			var resultMessage;
 			switch (prediction[0].className) {
 				case "Korea":
