@@ -384,6 +384,13 @@ figure.effect-sadie:hover p {
     height: 336px;
     max-width: 560px;
 }
+.tm-about-img2 {
+    background-image: url(../img/femalephoto.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 336px;
+    max-width: 560px;
+}
 
 .tm-mb-30 { margin-bottom: 30px; }
 .tm-mb-medium { margin-bottom: 90px; }
