@@ -53,14 +53,14 @@
 
 <body onload="onload()">
 	<nav class="navbar navbar-expand-lg navbar-light nav-distance">
-		<a class="navbar-brand" href="https://www.countrybyface.com/">나라별 호감상</a>
+		<a class="navbar-brand" href="https://countrybyface.netlify.app/">나라별 호감상</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item active">
-					<a class="nav-link" href="https://www.countrybyface.com/">홈
+					<a class="nav-link" href="https://countrybyface.netlify.app/">홈
 						<span class="sr-only">(current)</span>
 					</a>
 				</li>
@@ -71,7 +71,7 @@
 					<a class="nav-link" href="https://teachablemachine.withgoogle.com/">구글 AI</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="https://www.countrybyface.com/privacy.html">개인정보처리방침</a>
+					<a class="nav-link" href="https://countrybyface.netlify.app/privacy.html">개인정보처리방침</a>
 				</li>
 			</ul>
 		</div>
@@ -96,14 +96,14 @@
         function changeLanguage(lang) {
             if( ( navigator.userAgent.indexOf('Mac OS') > 0 && navigator.userAgent.indexOf('Safari') <= 0 ) || ( ( navigator.userAgent.indexOf('Android') > 0 && navigator.userAgent.indexOf('wv)') > 0 ) ) ){
                 if (ua.match('android') != null) {
-                    window.open("googlechrome://navigate?url=countrybyface.com/"+lang.value+"/index.html"); //android
+                    window.open("googlechrome://navigate?url=https://countrybyface.netlify.app/"+lang.value+"/index.html"); //android
                 } else if (ua.indexOf("iphone")>-1||ua.indexOf("ipad")>-1||ua.indexOf("ipod")>-1) { 
-                    window.location.href = "https://www.countrybyface.com/"+lang.value+"/index.html";
+                    window.location.href = "https://countrybyface.netlify.app/"+lang.value+"/index.html";
                 } else {
-                    window.location.href = "https://www.countrybyface.com/"+lang.value+"/index.html";
+                    window.location.href = "https://countrybyface.netlify.app/"+lang.value+"/index.html";
                 }
             } else {
-                window.location.href = "https://www.countrybyface.com/"+lang.value+"/index.html";
+                window.location.href = "https://countrybyface.netlify.app/"+lang.value+"/index.html";
             }
         }
     </script>
